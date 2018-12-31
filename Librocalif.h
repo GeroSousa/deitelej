@@ -6,20 +6,10 @@ using namespace std;
 
 class LibroCalificaciones {
 public:
-	LibroCalificaciones(string nombre) {
-		establecerNombreCurso(nombre);
-	}
-	void establecerNombreCurso(string nombre) {
-		nombreCurso = nombre;
-	}
-
-	string obtenerNombreCurso() {
-		return nombreCurso;
-	}
-
-	void mostrarMensaje() {
-		cout << "Bienvenido al libro de Calificaciones para:\n " << obtenerNombreCurso() << " !." << endl;
-	}
+	LibroCalificaciones(string);
+	void establecerNombreCurso(string);
+	string obtenerNombreCurso();
+	void mostrarMensaje();
 
 private:
 	string nombreCurso;
