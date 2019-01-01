@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -148,5 +149,211 @@ public:
 	}
 	void ej2_29() {
 		cout << "numero  cuadrado  cubo\n0      0       0\n1      1       1\n2      4       8\n3      9       27\n4      16      64" << endl;//continuar
+	}
+};
+class Cuenta {
+public:
+	Cuenta(int saldoInicial) {
+		if (saldoInicial <0) {
+			saldoCuenta = 0;
+			cout << "El saldo inicial era invalido." << endl;
+		}
+		else {
+			saldoCuenta = saldoInicial;
+		}
+	}
+	void credit(int monto) {
+		saldoCuenta += monto;
+	}
+	void cargar(int monto) {
+		if (monto > saldoCuenta) {
+			cout<<"El monto a cargar excede el saldo de la cuenta." << endl;
+		}
+		else {
+			saldoCuenta -= monto;
+		}
+	}
+	int obtenerSaldoCuenta() {
+		return saldoCuenta;
+	}
+
+
+private:
+	int saldoCuenta;
+};
+class Factura {
+public:
+	Factura(string pieza, string descripcion, int cantidad, int precio) {
+		establecerNumPieza(pieza);
+		establecerDescPieza(descripcion);
+		establecerCantArt(cantidad);
+		establecerPrecioArt(precio);
+	 }
+	void establecerNumPieza(string pieza) {
+		numPieza = pieza;
+	}
+	void establecerDescPieza(string desc) {
+		descPieza = desc;
+	}
+	void establecerCantArt(int cant) {
+		if (cant < 0) {
+			cantArt = 0;
+		}
+		else {
+			cantArt = cant;
+		}
+	}
+	void establecerPrecioArt(int precio) {
+		if (precio < 0) {
+			precioArt = 0;
+		}
+		else {
+			precioArt = precio;
+		}
+	}
+	string obtenerNumPieza() {
+		return numPieza;
+	}
+	string obtenerDescPieza() {
+		return descPieza;
+	}
+	int obtenerCantArt() {
+		return cantArt;
+	}
+	int obtenerPrecioArt() {
+		return precioArt;
+	}
+	int obtenerMontoFactura() {
+		int monto = cantArt * precioArt;
+		return monto;
+	}
+
+private:
+	string numPieza;
+	string descPieza;
+	int cantArt;
+	int precioArt;
+};
+class Empleado {
+public:
+	Empleado(string nombre, string apellido, int salario) {
+
+	}
+	void establecerNombre(string nom) {
+		primerNombre = nom;
+	}
+	void establecerApellido(string apell) {
+		apellidoPaterno = apell;
+	}
+	void establecerSalarioMensaul(int salario) {
+		if (salario < 0) {
+			salarioMensual = 0;
+		}
+		else {
+			salarioMensual = salario;
+		}
+	}
+	string obtenerNombre() {
+		return primerNombre;
+	}
+
+	string obtenerApellido() {
+		return apellidoPaterno;
+	}
+	int obtenerSalarioMensual() {
+		return salarioMensual;
+	}
+	void establecerSalarioAnual() {
+		salarioAnual = salarioMensual * 12;
+	}
+	int obtenerSalarioAnual() {
+		return salarioAnual;
+	}
+
+private:
+	string primerNombre;
+	string apellidoPaterno;
+	int salarioMensual;
+	int salarioAnual;
+};
+class Fecha {
+public:
+	Fecha(int dia, int mes, int anio) {
+		establecerDia(dia);
+		establecerMes(mes);
+		establecerAnio(anio);
+	}
+	void establecerDia(int dia) {
+		diap = dia;
+	}
+	void establecerMes(int mes) {
+		if(mes < 1 or mes>12) {
+			mesp = 1;
+		}
+		else {
+			mesp = mes;
+		}
+	}
+	void establecerAnio(int anio) {
+		aniop = anio;
+	}
+	int obtenerDia() {
+		return diap;
+	}
+	int obtenerMes() {
+		return mesp;
+	}
+	int obtenerAnio() {
+		return aniop;
+	}
+	void mostrarFecha() {
+		cout << obtenerDia() << "/" << obtenerMes() << "/" << obtenerAnio();
+	}
+private:
+	int diap;
+	int mesp;
+	int aniop;
+};
+class mainp {
+public: 
+	void ej421() {
+		int c;
+		c = 5;
+		cout << c << endl;
+		cout << c++ << endl;
+		cout << c << endl;
+
+		c = 5;
+		cout << c << endl;
+		cout << ++c << endl;
+		cout << c << endl;
+
+	}
+};
+class Ejer4 {
+public:
+	void ej4_13() {
+		int kilometros;
+		int litros;
+		int totalk = 0;
+		int totall = 0;
+		double kpl;
+		
+		cout << "Escriba los kilometros usados (-1 para salir): ";
+		cin >> kilometros;
+		while (kilometros != -1) {
+			cout << "Escriba los litros: ";
+			cin >> litros;
+			kpl = static_cast<double>(kilometros) / litros;
+			totalk += kilometros;
+			totall += litros;
+			double promedio = static_cast<double>( totalk) / totall;
+			cout << "KPL en este reabastecimiento: " << fixed << kpl << endl;
+			cout << "Total KPL: " << fixed << promedio << endl;
+			cout << endl;
+			cout << "Escriba los kilometros usados (-1 para salir): ";
+			cin >> kilometros;
+		}
+		
 	}
 };

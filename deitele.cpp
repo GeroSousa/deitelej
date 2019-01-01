@@ -13,13 +13,21 @@ using namespace std;
 
 int main()
 {
-	string nom;
+	string nom, non;
 	
-	cout << "Ingresa el nombre del curso: ";
+	/*cout << "ingresa el nombre del curso: ";    
 	getline(cin, nom);
-	LibroCalificaciones libro(nom);
-
+	cout << "ingresa el nombre del instructor: ";
+	getline(cin, non);
+	LibroCalificaciones libro(nom,non);
 	libro.mostrarMensaje();
+	libro.determinarPromedioClase();*/
+	Ejer4 e;
+	e.ej4_13();
+	
+
+
+	
 
 
 }
